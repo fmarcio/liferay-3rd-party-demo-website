@@ -1,24 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import ClayIcon, { ClayIconSpriteContext } from "@clayui/icon";
+import LoginPage from "./pages/LoginPage";
+import Home from "./pages/Home";
+import ItemDetailsPage from "./pages/ItemDetailsPage";
+
+const spritemap = "/icons.svg";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ClayIconSpriteContext.Provider value={spritemap}>
+      <div className="App">
+        <BrowserRouter>
+          <Switch>
+            <Route path="/login">
+              <LoginPage />
+            </Route>
+          </Switch>
+
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+          </Switch>
+
+          <Switch>
+            <Route exact path="/home">
+              <Home />
+            </Route>
+          </Switch>
+
+          <Switch>
+            <Route exact path="/details">
+              <ItemDetailsPage />
+            </Route>
+          </Switch>
+        </BrowserRouter>
+      </div>
+    </ClayIconSpriteContext.Provider>
   );
 }
 

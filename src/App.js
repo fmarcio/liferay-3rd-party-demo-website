@@ -1,7 +1,7 @@
 import "./App.css";
 
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import ClayIcon, { ClayIconSpriteContext } from "@clayui/icon";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import { ClayIconSpriteContext } from "@clayui/icon";
 import LoginPage from "./pages/LoginPage";
 import Home from "./pages/Home";
 import ItemDetailsPage from "./pages/ItemDetailsPage";
@@ -17,21 +17,15 @@ function App() {
             <Route path="/login">
               <LoginPage />
             </Route>
-          </Switch>
 
-          <Switch>
             <Route exact path="/">
-              <Home />
+              <Redirect to="/home?userId=419432" />
             </Route>
-          </Switch>
 
-          <Switch>
             <Route exact path="/home">
               <Home />
             </Route>
-          </Switch>
 
-          <Switch>
             <Route exact path="/details">
               <ItemDetailsPage />
             </Route>

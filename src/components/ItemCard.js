@@ -1,18 +1,23 @@
 import React from "react";
 import ClayCard from "@clayui/card";
 import ClayIcon from "@clayui/icon";
-import ClayLink from "@clayui/link";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { getUserId } from "../utils/url";
+import { url } from "../utils/constants";
+import { Text } from "@clayui/core";
 
-const ItemCard = ({ description, id, image, title, user }) => {
-  const url = "https://webserver-lctgvrnmnt-prd.lfr.cloud";
+const ItemCard = ({ description, id, image, title }) => {
+  const userId = getUserId();
 
   return (
     <ClayCard displayType={image ? "image" : "file"}>
       {!image && (
         <ClayCard.AspectRatio className="card-item-first">
           <div className="aspect-ratio-item aspect-ratio-item-center-middle aspect-ratio-item-fluid card-type-asset-icon">
-            <ClayIcon symbol="documents-and-media" />
+            <ClayIcon
+              symbol="web-content
+"
+            />
           </div>
         </ClayCard.AspectRatio>
       )}
@@ -29,11 +34,17 @@ const ItemCard = ({ description, id, image, title, user }) => {
 
       <ClayCard.Body>
         <ClayCard.Description displayType="title">
-          <Link to={`/details?user=${user}&id=${id}`}>{title}</Link>
+          <Text size={5}>{title}</Text>
         </ClayCard.Description>
 
         <ClayCard.Description truncate displayType="text">
-          {description}
+          <Text size={3}>{description}</Text>
+        </ClayCard.Description>
+
+        <ClayCard.Description displayType="text">
+          <Link to={`/details?userId=${userId}&contentId=${id}`}>
+            Read more
+          </Link>
         </ClayCard.Description>
       </ClayCard.Body>
     </ClayCard>

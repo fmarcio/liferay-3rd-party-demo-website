@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ClayForm, { ClayInput } from "@clayui/form";
 import ClayButton from "@clayui/button";
-import { Option, Picker } from "@clayui/core";
+import { Option, Picker, Text } from "@clayui/core";
 import ClayLoadingIndicator from "@clayui/loading-indicator";
 import { Link } from "react-router-dom";
 import { useFetchUsers } from "../hooks/useFetch";
@@ -21,8 +21,12 @@ const LoginPage = () => {
           <img height={100} src="/logo.png" alt="logo" />
         </div>
 
-        <label className="mb-3" htmlFor="picker" id="picker-label">
-          Login
+        <label
+          className="mb-3 text-uppercase"
+          htmlFor="picker"
+          id="picker-label"
+        >
+          <Text size={4}>Login</Text>
         </label>
 
         {loading && <ClayLoadingIndicator className="mb-4" />}
@@ -65,6 +69,11 @@ const LoginPage = () => {
           </Link>
         </div>
       </ClayForm.Group>
+
+      <div className="text-center">
+        {" "}
+        3rd party website demo. Powered by @liferay
+      </div>
     </div>
   );
 };

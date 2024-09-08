@@ -1,5 +1,11 @@
 import { useEffect, useState } from "react";
 import { getContentId, getUserId } from "../utils/url";
+import {
+  getRecommendationsFromLocalStorage,
+  getUsersFromLocalStorage,
+  setRecommendationsOnLocalStorage,
+  setUsersOnLocalStorage,
+} from "../utils/storage";
 
 export const useFetchRecommendations = () => {
   const userId = getUserId();
@@ -29,6 +35,8 @@ export const useFetchRecommendations = () => {
 
           setItems(itemsContent);
           setLoading(false);
+
+          setRecommendationsOnLocalStorage(userId, itemsContent);
         } else {
           setItems([]);
           setLoading(false);
@@ -40,10 +48,17 @@ export const useFetchRecommendations = () => {
       }
     };
 
+    const itemsFromStorage = getRecommendationsFromLocalStorage(userId);
+
     if (!loadingUser) {
-      fetchRecommentation();
+      if (itemsFromStorage) {
+        setItems(itemsFromStorage);
+        setLoading(false);
+      } else {
+        fetchRecommentation();
+      }
     }
-  }, [item, loadingUser]);
+  }, [item, loadingUser, userId]);
 
   return { items, loading };
 };
@@ -80,6 +95,8 @@ export const useFetchUsers = () => {
 
           setItems(data.items);
           setLoading(false);
+
+          setUsersOnLocalStorage(data.items);
         } else {
           setLoading(false);
 
@@ -90,7 +107,14 @@ export const useFetchUsers = () => {
       }
     };
 
-    fetchUsers();
+    const usersFromLocalStorage = getUsersFromLocalStorage();
+
+    if (usersFromLocalStorage) {
+      setItems(usersFromLocalStorage);
+      setLoading(false);
+    } else {
+      fetchUsers();
+    }
   }, []);
 
   return {

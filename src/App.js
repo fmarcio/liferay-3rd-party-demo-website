@@ -3,8 +3,8 @@ import "./App.css";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import { ClayIconSpriteContext } from "@clayui/icon";
 import LoginPage from "./pages/LoginPage";
-import Home from "./pages/Home";
-import ItemDetailsPage from "./pages/ItemDetailsPage";
+import HomePage from "./pages/HomePage";
+import DetailsPage from "./pages/DetailsPage";
 
 const spritemap = "/icons.svg";
 
@@ -23,11 +23,11 @@ function App() {
             </Route>
 
             <Route exact path="/home">
-              <Home />
+              <HomePage />
             </Route>
 
             <Route exact path="/details">
-              <ItemDetailsPage />
+              <DetailsPage />
             </Route>
           </Switch>
         </BrowserRouter>

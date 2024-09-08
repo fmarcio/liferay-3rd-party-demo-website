@@ -6,7 +6,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { getUserId } from "../utils/url";
 
-const Home = () => {
+const HomePage = () => {
   const { items, loading } = useFetchRecommendations();
   const [filteredItems, setFilteredItems] = useState([]);
   const [filteredValue, setFilteredValue] = useState("");
@@ -89,4 +89,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;

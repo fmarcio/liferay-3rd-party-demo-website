@@ -43,7 +43,7 @@ const LoginPage = () => {
         <ClayInput
           disabled={loading}
           id="basicInputText"
-          placeholder="Insert your password here"
+          placeholder="Type password"
           type="password"
           value={password}
           onChange={(event) => setPassword(event.target.value)}

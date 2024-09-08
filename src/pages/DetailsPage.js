@@ -7,7 +7,7 @@ import { url } from "../utils/constants";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
-const ItemDetailsPage = () => {
+const DetailsPage = () => {
   const { item, loading } = useFetchRecommendationItem();
   const userId = getUserId();
   const imageField = item?.contentFields?.find(({ label }) => label === "Image")
@@ -78,4 +78,4 @@ const ItemDetailsPage = () => {
   );
 };
 
-export default ItemDetailsPage;
+export default DetailsPage;

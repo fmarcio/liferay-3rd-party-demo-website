@@ -47,7 +47,7 @@ const Header = ({ value, onChange, showFilter = true, userName }) => {
         {showFilter && (
           <ClayInput
             onChange={onChange}
-            placeholder="filter by some article..."
+            placeholder="Type to filter by content recommendation..."
             value={value}
           />
         )}

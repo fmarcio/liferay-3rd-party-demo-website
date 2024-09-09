@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import { useFetchRecommendationItem, useFetchUser } from "../hooks/useFetch";
 import { getUserId } from "../utils/url";
 import ClayLoadingIndicator from "@clayui/loading-indicator";
-import { url } from "../utils/constants";
+import { documentTitle, url } from "../utils/constants";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 const DetailsPage = () => {
-  const { item, loading } = useFetchRecommendationItem();
+  const { item, loading: loadingItem } = useFetchRecommendationItem();
   const userId = getUserId();
   const imageField = item?.contentFields?.find(({ label }) => label === "Image")
     ?.contentFieldValue?.image?.contentUrl;
@@ -19,7 +19,9 @@ const DetailsPage = () => {
   const { item: user, loading: loadingUser } = useFetchUser(userId);
 
   useEffect(() => {
-    if (window.Analytics && !loadingUser) {
+    document.title = `${documentTitle} - ${item?.title}`;
+
+    if (window.Analytics && !loadingUser && !loadingItem) {
       window.Analytics.setIdentity({
         email: user?.emailAddress,
         name: user?.name,
@@ -27,14 +29,14 @@ const DetailsPage = () => {
 
       window.Analytics.send("pageViewed", "Page");
     }
-  }, [loadingUser, user?.emailAddress, user?.name]);
+  }, [loadingUser, user?.emailAddress, user?.name, item?.title, loadingItem]);
 
   return (
     <>
       <Header showFilter={false} userName={user?.name} />
 
       <div className="content pb-4">
-        {!loading ? (
+        {!loadingItem ? (
           <>
             <div
               data-analytics-asset-id={item.id}

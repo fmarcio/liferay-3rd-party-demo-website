@@ -18,7 +18,7 @@ const LoginPage = () => {
     <div style={{ margin: "100px auto", maxWidth: 400 }}>
       <ClayForm.Group className="sheet">
         <div className="text-center mb-4">
-          <img height={100} src="/logo.png" alt="logo" />
+          <img height={100} src="./logo.png" alt="logo" />
         </div>
 
         <label
@@ -56,7 +56,7 @@ const LoginPage = () => {
         <div className="text-center mt-3">
           <Link
             className="login-link"
-            to={isLinkEnabled ? `/home?userId=${selectedUserId}` : null}
+            to={isLinkEnabled ? `/home?userId=${selectedUserId}` : ""}
           >
             <ClayButton
               block

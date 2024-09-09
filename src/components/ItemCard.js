@@ -2,22 +2,19 @@ import React from "react";
 import ClayCard from "@clayui/card";
 import ClayIcon from "@clayui/icon";
 import { Link } from "react-router-dom";
-import { getUserId } from "../utils/url";
 import { url } from "../utils/constants";
 import { Text } from "@clayui/core";
+import { useQuery } from "../hooks/useQuery";
 
 const ItemCard = ({ description, id, image, title }) => {
-  const userId = getUserId();
+  const userId = useQuery("userId");
 
   return (
     <ClayCard displayType={image ? "image" : "file"}>
       {!image && (
         <ClayCard.AspectRatio className="card-item-first">
           <div className="aspect-ratio-item aspect-ratio-item-center-middle aspect-ratio-item-fluid card-type-asset-icon">
-            <ClayIcon
-              symbol="web-content
-"
-            />
+            <ClayIcon symbol="web-content" />
           </div>
         </ClayCard.AspectRatio>
       )}

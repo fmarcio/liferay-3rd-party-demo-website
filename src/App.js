@@ -1,18 +1,18 @@
 import "./App.css";
 
-import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import { HashRouter, Redirect, Route, Switch } from "react-router-dom";
 import { ClayIconSpriteContext } from "@clayui/icon";
 import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
 import DetailsPage from "./pages/DetailsPage";
 
-const spritemap = "/icons.svg";
+const spritemap = "./icons.svg";
 
 function App() {
   return (
     <ClayIconSpriteContext.Provider value={spritemap}>
       <div className="App">
-        <BrowserRouter>
+        <HashRouter basename={process.env.PUBLIC_URL}>
           <Switch>
             <Route path="/login">
               <LoginPage />
@@ -30,7 +30,7 @@ function App() {
               <DetailsPage />
             </Route>
           </Switch>
-        </BrowserRouter>
+        </HashRouter>
       </div>
     </ClayIconSpriteContext.Provider>
   );

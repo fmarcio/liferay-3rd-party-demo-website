@@ -1,15 +1,15 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useFetchRecommendationItem, useFetchUser } from "../hooks/useFetch";
-import { getUserId } from "../utils/url";
 import ClayLoadingIndicator from "@clayui/loading-indicator";
 import { documentTitle, url } from "../utils/constants";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { useQuery } from "../hooks/useQuery";
 
 const DetailsPage = () => {
   const { item, loading: loadingItem } = useFetchRecommendationItem();
-  const userId = getUserId();
+  const userId = useQuery("userId");
   const imageField = item?.contentFields?.find(({ label }) => label === "Image")
     ?.contentFieldValue?.image?.contentUrl;
 

@@ -1,14 +1,14 @@
-import { getUserId } from "../utils/url";
 import { Link } from "react-router-dom";
 import { ClayInput } from "@clayui/form";
+import { useQuery } from "../hooks/useQuery";
 
 const Header = ({ value, onChange, showFilter = true, userName }) => {
-  const userId = getUserId();
+  const userId = useQuery("userId");
 
   return (
     <header className="header d-flex justify-content-between py-4 px-6">
       <Link to={`/home?userId=${userId}`}>
-        <img width={300} src="/logo.png" alt="logo" />
+        <img width={300} src="./logo.png" alt="logo" />
       </Link>
 
       <div className="header__right-side">

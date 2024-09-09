@@ -4,15 +4,15 @@ import ClayLoadingIndicator from "@clayui/loading-indicator";
 import { useFetchRecommendations, useFetchUser } from "../hooks/useFetch";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { getUserId } from "../utils/url";
 import { documentTitle } from "../utils/constants";
+import { useQuery } from "../hooks/useQuery";
 
 const HomePage = () => {
   const { items, loading } = useFetchRecommendations();
   const [filteredItems, setFilteredItems] = useState([]);
   const [filteredValue, setFilteredValue] = useState("");
 
-  const userId = getUserId();
+  const userId = useQuery("userId");
   const { item, loading: loadingUser } = useFetchUser(userId);
 
   useEffect(() => {
@@ -83,7 +83,7 @@ const HomePage = () => {
               </div>
             </div>
           ) : (
-            <p>No recommendations available</p>
+            <p>No recommendations available for you</p>
           ))}
       </div>
 

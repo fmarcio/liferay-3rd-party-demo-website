@@ -1,5 +1,5 @@
 const RECOMMENDATIONS_KEY = "LIFERAY_CITY_RECOMMENDATIONS_KEY";
-const USERS_KEY = "LIFERAY_CITY_RECOMMENDATIONS_KEY";
+const USERS_KEY = "LIFERAY_CITY_USERS_KEY";
 
 export const setRecommendationsOnLocalStorage = (userId, items) => {
   localStorage.setItem(

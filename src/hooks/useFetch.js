@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
-import { getContentId, getUserId } from "../utils/url";
 import {
   getRecommendationsFromLocalStorage,
   getUsersFromLocalStorage,
   setRecommendationsOnLocalStorage,
   setUsersOnLocalStorage,
 } from "../utils/storage";
+import { useQuery } from "./useQuery";
 
 export const useFetchRecommendations = () => {
-  const userId = getUserId();
+  const userId = useQuery("userId");
 
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -64,7 +64,7 @@ export const useFetchRecommendations = () => {
 };
 
 export const useFetchRecommendationItem = () => {
-  const contentId = getContentId();
+  const contentId = useQuery("contentId");
   const { items, loading } = useFetchRecommendations();
 
   return {

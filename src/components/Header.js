@@ -8,7 +8,11 @@ const Header = ({ value, onChange, showFilter = true, userName }) => {
   return (
     <header className="header d-flex justify-content-between py-4 px-6">
       <Link to={`/home?userId=${userId}`}>
-        <img width={300} src="./logo.png" alt="logo" />
+        <img
+          width={300}
+          src="liferay-3rd-party-demo-website/logo.png"
+          alt="logo"
+        />
       </Link>
 
       <div className="header__right-side">
@@ -35,7 +39,7 @@ const Header = ({ value, onChange, showFilter = true, userName }) => {
           </ul>
 
           {userName && (
-            <div className="ml-8">
+            <div className="logged-in-user ml-8">
               welcome, {userName}!
               <span className="ml-2">
                 <Link to="/login">Sign out</Link>

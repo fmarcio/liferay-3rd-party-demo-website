@@ -67,7 +67,7 @@ const HomePage = () => {
                   );
 
                   return (
-                    <div className="col-4" key={id}>
+                    <div className="col-lg-4 col-md-12" key={id}>
                       <ItemCard
                         description={
                           subtitleField?.contentFieldValue?.data ||

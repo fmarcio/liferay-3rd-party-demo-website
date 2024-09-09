@@ -15,10 +15,10 @@ const LoginPage = () => {
   const isLinkEnabled = password.trim() !== "";
 
   return (
-    <div style={{ margin: "100px auto", maxWidth: 400 }}>
+    <div className="login">
       <ClayForm.Group className="sheet">
         <div className="text-center mb-4">
-          <img height={100} src="./logo.png" alt="logo" />
+          <img src="liferay-3rd-party-demo-website/logo.png" alt="logo" />
         </div>
 
         <label

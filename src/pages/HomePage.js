@@ -5,6 +5,7 @@ import { useFetchRecommendations, useFetchUser } from "../hooks/useFetch";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { getUserId } from "../utils/url";
+import { documentTitle } from "../utils/constants";
 
 const HomePage = () => {
   const { items, loading } = useFetchRecommendations();
@@ -25,7 +26,9 @@ const HomePage = () => {
   }, [filteredValue, items]);
 
   useEffect(() => {
-    if (window.Analytics && !loadingUser) {
+    document.title = documentTitle;
+
+    if (window.Analytics && !loadingUser && !loading) {
       window.Analytics.setIdentity({
         email: item?.emailAddress,
         name: item?.name,
@@ -33,7 +36,7 @@ const HomePage = () => {
 
       window.Analytics.send("pageViewed", "Page");
     }
-  }, [item?.emailAddress, item?.name, loadingUser]);
+  }, [item?.emailAddress, item?.name, loadingUser, loading]);
 
   return (
     <div>

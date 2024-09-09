@@ -6,7 +6,7 @@ import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
 import DetailsPage from "./pages/DetailsPage";
 
-const spritemap = "./icons.svg";
+const spritemap = "liferay-3rd-party-demo-website/icons.svg";
 
 function App() {
   return (

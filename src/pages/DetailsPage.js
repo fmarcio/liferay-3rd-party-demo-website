@@ -28,6 +28,11 @@ const DetailsPage = () => {
       });
 
       window.Analytics.send("pageViewed", "Page");
+
+      window.Analytics.track("customEventContentViewed", {
+        id: item?.id,
+        title: item?.title,
+      });
     }
   }, [loadingUser, user?.emailAddress, user?.name, item?.title, loadingItem]);
 

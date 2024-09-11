@@ -17,8 +17,14 @@ const LoginPage = () => {
   return (
     <div className="login">
       <ClayForm.Group className="sheet">
-        <div className="text-center mb-4">
+        <div className="text-center mb-4 position-relative">
           <img src="./logo.png" alt="logo" />
+
+          <div className="header__logo-login-text">
+            <Text weight="bold" size={3}>
+              3rd party website
+            </Text>
+          </div>
         </div>
 
         <label

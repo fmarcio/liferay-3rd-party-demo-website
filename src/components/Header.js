@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ClayInput } from "@clayui/form";
 import { useQuery } from "../hooks/useQuery";
+import { Text } from "@clayui/core";
 
 const Header = ({ value, onChange, showFilter = true, userName }) => {
   const userId = useQuery("userId");
@@ -8,7 +9,14 @@ const Header = ({ value, onChange, showFilter = true, userName }) => {
   return (
     <header className="header d-flex justify-content-between py-4 px-6">
       <Link to={`/home?userId=${userId}`}>
-        <img width={300} src="./logo.png" alt="logo" />
+        <div className="position-relative">
+          <img width={300} src="./logo.png" alt="logo" />
+          <div className="header__logo-text">
+            <Text weight="bold" size={6}>
+              3rd party website
+            </Text>
+          </div>
+        </div>
       </Link>
 
       <div className="header__right-side">

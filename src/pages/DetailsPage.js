@@ -31,6 +31,22 @@ const DetailsPage = () => {
     }
   }, [loadingUser, user?.emailAddress, user?.name, item?.title, loadingItem]);
 
+  const url = "https://webserver-lctgvrnmnt-prd.lfr.cloud";
+
+  function formatContent(content, url) {
+    const regex = /src=["']([^"']+)["']/;
+
+    const match = content?.match(regex);
+
+    if (match && match[1]) {
+      const resultString = content.replace(match[0], `src="${url}${match[1]}"`);
+
+      return resultString;
+    } else {
+      return content;
+    }
+  }
+
   return (
     <>
       <Header showFilter={false} userName={user?.name} />
@@ -56,7 +72,7 @@ const DetailsPage = () => {
 
                     <div
                       dangerouslySetInnerHTML={{
-                        __html: content,
+                        __html: formatContent(content, url),
                       }}
                     />
                   </div>

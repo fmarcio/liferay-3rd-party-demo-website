@@ -19,7 +19,7 @@ function App() {
             </Route>
 
             <Route exact path="/">
-              <Redirect to="/home?userId=419432" />
+              <Redirect to="/home?userId=419623" />
             </Route>
 
             <Route exact path="/home">

@@ -10,25 +10,7 @@ const ItemCard = ({ description, id, image, title }) => {
   const userId = useQuery("userId");
 
   return (
-    <ClayCard displayType={image ? "image" : "file"}>
-      {!image && (
-        <ClayCard.AspectRatio className="card-item-first">
-          <div className="aspect-ratio-item aspect-ratio-item-center-middle aspect-ratio-item-fluid card-type-asset-icon">
-            <ClayIcon symbol="web-content" />
-          </div>
-        </ClayCard.AspectRatio>
-      )}
-
-      {image && (
-        <ClayCard.AspectRatio className="card-item-first">
-          <img
-            alt="thumbnail"
-            className="aspect-ratio-item aspect-ratio-item-center-middle aspect-ratio-item-fluid"
-            src={url + image}
-          />
-        </ClayCard.AspectRatio>
-      )}
-
+    <ClayCard displayType={"file"}>
       <ClayCard.Body>
         <ClayCard.Description displayType="title">
           <Text size={5}>{title}</Text>

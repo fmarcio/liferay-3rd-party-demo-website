@@ -62,10 +62,6 @@ const HomePage = () => {
                     (field) => field.label === "Subtitle"
                   );
 
-                  const imageField = contentFields?.find(
-                    (field) => field.label === "Image"
-                  );
-
                   return (
                     <div className="col-lg-4 col-md-12" key={id}>
                       <ItemCard
@@ -74,7 +70,6 @@ const HomePage = () => {
                           "No subtitle available"
                         }
                         id={id}
-                        image={imageField?.contentFieldValue?.image?.contentUrl}
                         title={title}
                       />
                     </div>

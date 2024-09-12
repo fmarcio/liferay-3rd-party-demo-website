@@ -14,6 +14,12 @@ const LoginPage = () => {
 
   const isLinkEnabled = password.trim() !== "";
 
+  const filteredItems = items.filter(
+    (item) =>
+      item.alternateName === "addisoncagney" ||
+      item.alternateName === "arjunacollins"
+  );
+
   return (
     <div className="login">
       <ClayForm.Group className="sheet">
@@ -43,7 +49,7 @@ const LoginPage = () => {
             className="mb-3"
             aria-labelledby="picker-label"
             id="picker"
-            items={items}
+            items={filteredItems}
             onSelectionChange={(id) => setSelectedUserId(id)}
           >
             {({ name, id }) => <Option key={id}>{name}</Option>}

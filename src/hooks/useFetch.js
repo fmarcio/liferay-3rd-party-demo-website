@@ -22,7 +22,7 @@ export const useFetchRecommendations = () => {
           {
             headers: {
               Authorization: `Basic ${btoa(
-                `${item.alternateName}:thisisanalmostunguessablebutanywayunimportantpassword`
+                `${item.name.trim().toLowerCase().replace(" ", "")}:test`
               )}`,
             },
           }

@@ -1,8 +1,6 @@
 import React from "react";
 import ClayCard from "@clayui/card";
-import ClayIcon from "@clayui/icon";
 import { Link } from "react-router-dom";
-import { url } from "../utils/constants";
 import { Text } from "@clayui/core";
 import { useQuery } from "../hooks/useQuery";
 

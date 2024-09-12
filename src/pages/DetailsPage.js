@@ -31,8 +31,6 @@ const DetailsPage = () => {
     }
   }, [loadingUser, user?.emailAddress, user?.name, item?.title, loadingItem]);
 
-  const url = "https://webserver-lctgvrnmnt-prd.lfr.cloud";
-
   function formatContent(content, url) {
     const regex = /src=["']([^"']+)["']/;
 

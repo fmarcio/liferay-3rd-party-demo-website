@@ -4,7 +4,6 @@ import { useFetchRecommendationItem, useFetchUser } from "../hooks/useFetch";
 import ClayLoadingIndicator from "@clayui/loading-indicator";
 import { documentTitle, url } from "../utils/constants";
 import Header from "../components/Header";
-import Footer from "../components/Footer";
 import { useQuery } from "../hooks/useQuery";
 
 const DetailsPage = () => {
@@ -94,8 +93,6 @@ const DetailsPage = () => {
           />
         )}
       </div>
-
-      <Footer />
     </>
   );
 };

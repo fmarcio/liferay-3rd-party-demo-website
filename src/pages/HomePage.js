@@ -3,7 +3,6 @@ import ItemCard from "../components/ItemCard";
 import ClayLoadingIndicator from "@clayui/loading-indicator";
 import { useFetchRecommendations, useFetchUser } from "../hooks/useFetch";
 import Header from "../components/Header";
-import Footer from "../components/Footer";
 import { documentTitle } from "../utils/constants";
 import { useQuery } from "../hooks/useQuery";
 

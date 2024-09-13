@@ -16,7 +16,7 @@ const LoginPage = () => {
 
   const filteredItems = items.filter(
     (item) =>
-      item.alternateName === "addisoncagney" ||
+      item.alternateName === "alexandercampbell" ||
       item.alternateName === "arjunacollins"
   );
 
@@ -28,7 +28,7 @@ const LoginPage = () => {
 
           <div className="header__logo-login-text">
             <Text weight="bold" size={3}>
-              3rd party website
+              Application
             </Text>
           </div>
         </div>
@@ -49,7 +49,7 @@ const LoginPage = () => {
             className="mb-3"
             aria-labelledby="picker-label"
             id="picker"
-            items={items}
+            items={filteredItems}
             onSelectionChange={(id) => setSelectedUserId(id)}
           >
             {({ name, id }) => <Option key={id}>{name}</Option>}
@@ -81,11 +81,6 @@ const LoginPage = () => {
           </Link>
         </div>
       </ClayForm.Group>
-
-      <div className="text-center">
-        {" "}
-        3rd party website demo. Powered by @liferay
-      </div>
     </div>
   );
 };

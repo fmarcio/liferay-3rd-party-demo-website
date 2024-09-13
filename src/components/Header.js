@@ -13,7 +13,7 @@ const Header = ({ value, onChange, showFilter = true, userName }) => {
           <img width={300} src="./logo.png" alt="logo" />
           <div className="header__logo-text">
             <Text weight="bold" size={6}>
-              3rd party website
+              Application
             </Text>
           </div>
         </div>

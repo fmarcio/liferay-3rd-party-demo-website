@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/liferay-3rd-party-demo-website/static/css/main.2a38f006.css",
-    "main.js": "/liferay-3rd-party-demo-website/static/js/main.78f3f57e.js",
+    "main.js": "/liferay-3rd-party-demo-website/static/js/main.a1f3e273.js",
     "index.html": "/liferay-3rd-party-demo-website/index.html",
     "main.2a38f006.css.map": "/liferay-3rd-party-demo-website/static/css/main.2a38f006.css.map",
-    "main.78f3f57e.js.map": "/liferay-3rd-party-demo-website/static/js/main.78f3f57e.js.map"
+    "main.a1f3e273.js.map": "/liferay-3rd-party-demo-website/static/js/main.a1f3e273.js.map"
   },
   "entrypoints": [
     "static/css/main.2a38f006.css",
-    "static/js/main.78f3f57e.js"
+    "static/js/main.a1f3e273.js"
   ]
 }

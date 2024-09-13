@@ -81,8 +81,6 @@ const HomePage = () => {
             <p>No recommendations available for you</p>
           ))}
       </div>
-
-      <Footer />
     </div>
   );
 };

@@ -21,9 +21,7 @@ export const useFetchRecommendations = () => {
           `https://webserver-lctgvrnmnt-prd.lfr.cloud/o/headless-delivery/v1.0/sites/46872/content-set-providers/by-key/com.liferay.analytics.machine.learning.internal.recommendation.info.collection.provider.UserContentRecommendationInfoItemCollectionProvider/content-set-elements`,
           {
             headers: {
-              Authorization: `Basic ${btoa(
-                `${item.name.trim().toLowerCase().replace(" ", "")}:test`
-              )}`,
+              Authorization: `Basic ${btoa(`${item.alternateName}:test`)}`,
             },
           }
         );

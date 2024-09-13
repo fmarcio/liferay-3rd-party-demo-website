@@ -49,7 +49,7 @@ const LoginPage = () => {
             className="mb-3"
             aria-labelledby="picker-label"
             id="picker"
-            items={filteredItems}
+            items={items}
             onSelectionChange={(id) => setSelectedUserId(id)}
           >
             {({ name, id }) => <Option key={id}>{name}</Option>}

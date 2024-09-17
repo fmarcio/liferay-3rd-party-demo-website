@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import {
-  getRecommendationsFromLocalStorage,
   getUsersFromLocalStorage,
-  setRecommendationsOnLocalStorage,
   setUsersOnLocalStorage,
 } from "../utils/storage";
 import { useQuery } from "./useQuery";
@@ -15,7 +13,7 @@ export const useFetchRecommendations = () => {
   const { loading: loadingUser, item } = useFetchUser(userId);
 
   useEffect(() => {
-    const fetchRecommentation = async () => {
+    const fetchRecommendation = async () => {
       try {
         const response = await fetch(
           `https://webserver-lctgvrnmnt-prd.lfr.cloud/o/headless-delivery/v1.0/sites/46872/content-set-providers/by-key/com.liferay.analytics.machine.learning.internal.recommendation.info.collection.provider.UserContentRecommendationInfoItemCollectionProvider/content-set-elements`,
@@ -33,8 +31,6 @@ export const useFetchRecommendations = () => {
 
           setItems(itemsContent);
           setLoading(false);
-
-          setRecommendationsOnLocalStorage(userId, itemsContent);
         } else {
           setItems([]);
           setLoading(false);
@@ -46,15 +42,8 @@ export const useFetchRecommendations = () => {
       }
     };
 
-    const itemsFromStorage = getRecommendationsFromLocalStorage(userId);
-
     if (!loadingUser) {
-      if (itemsFromStorage) {
-        setItems(itemsFromStorage);
-        setLoading(false);
-      } else {
-        fetchRecommentation();
-      }
+      fetchRecommendation();
     }
   }, [item, loadingUser, userId]);
 

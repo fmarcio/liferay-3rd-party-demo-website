@@ -5,6 +5,7 @@ import ClayLoadingIndicator from "@clayui/loading-indicator";
 import { documentTitle, url } from "../utils/constants";
 import Header from "../components/Header";
 import { useQuery } from "../hooks/useQuery";
+import { startAnalyticsScript } from "../utils/analytics-script";
 
 const DetailsPage = () => {
   const { item, loading: loadingItem } = useFetchRecommendationItem();
@@ -20,15 +21,10 @@ const DetailsPage = () => {
   useEffect(() => {
     document.title = `${documentTitle} - ${item?.title}`;
 
-    if (window.Analytics && !loadingUser && !loadingItem) {
-      window.Analytics.setIdentity({
-        email: user?.emailAddress,
-        name: user?.name,
-      });
-
-      window.Analytics.send("pageViewed", "Page");
+    if (!loadingUser && !loadingItem) {
+      startAnalyticsScript(user);
     }
-  }, [loadingUser, user?.emailAddress, user?.name, item?.title, loadingItem]);
+  }, [loadingUser, user, item?.title, loadingItem]);
 
   function formatContent(content, url) {
     const regex = /src=["']([^"']+)["']/;

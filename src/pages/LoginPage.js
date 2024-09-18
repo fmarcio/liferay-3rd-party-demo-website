@@ -5,6 +5,7 @@ import { Option, Picker, Text } from "@clayui/core";
 import ClayLoadingIndicator from "@clayui/loading-indicator";
 import { Link } from "react-router-dom";
 import { useFetchUsers } from "../hooks/useFetch";
+import { setUserIdOnLocalStorage } from "../utils/storage";
 
 const LoginPage = () => {
   const [password, setPassword] = useState("");
@@ -67,6 +68,7 @@ const LoginPage = () => {
 
         <div className="text-center mt-3">
           <Link
+            onClick={() => setUserIdOnLocalStorage(selectedUserId)}
             className="login-link"
             to={isLinkEnabled ? `/home?userId=${selectedUserId}` : ""}
           >

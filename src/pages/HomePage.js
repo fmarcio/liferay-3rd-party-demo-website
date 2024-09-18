@@ -5,6 +5,7 @@ import { useFetchRecommendations, useFetchUser } from "../hooks/useFetch";
 import Header from "../components/Header";
 import { documentTitle } from "../utils/constants";
 import { useQuery } from "../hooks/useQuery";
+import { startAnalyticsScript } from "../utils/analytics-script";
 
 const HomePage = () => {
   const { items, loading } = useFetchRecommendations();
@@ -12,7 +13,7 @@ const HomePage = () => {
   const [filteredValue, setFilteredValue] = useState("");
 
   const userId = useQuery("userId");
-  const { item, loading: loadingUser } = useFetchUser(userId);
+  const { item: user, loading: loadingUser } = useFetchUser(userId);
 
   useEffect(() => {
     setFilteredItems(
@@ -27,20 +28,15 @@ const HomePage = () => {
   useEffect(() => {
     document.title = documentTitle;
 
-    if (window.Analytics && !loadingUser && !loading) {
-      window.Analytics.setIdentity({
-        email: item?.emailAddress,
-        name: item?.name,
-      });
-
-      window.Analytics.send("pageViewed", "Page");
+    if (!loadingUser && !loading) {
+      startAnalyticsScript(user);
     }
-  }, [item?.emailAddress, item?.name, loadingUser, loading]);
+  }, [loadingUser, loading, user]);
 
   return (
     <div>
       <Header
-        userName={item?.name}
+        userName={user?.name}
         onChange={({ target: { value } }) => setFilteredValue(value)}
         value={filteredValue}
       />

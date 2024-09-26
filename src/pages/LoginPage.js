@@ -25,13 +25,7 @@ const LoginPage = () => {
     <div className="login">
       <ClayForm.Group className="sheet">
         <div className="text-center mb-4 position-relative">
-          <img src="./logo.png" alt="logo" />
-
-          <div className="header__logo-login-text">
-            <Text weight="bold" size={3}>
-              Application
-            </Text>
-          </div>
+          <img src="./LiferayStateLogo-LoginPage.png" alt="logo" />
         </div>
 
         <label

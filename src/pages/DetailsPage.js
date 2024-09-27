@@ -19,9 +19,9 @@ const DetailsPage = () => {
   const { item: user, loading: loadingUser } = useFetchUser(userId);
 
   useEffect(() => {
-    document.title = `${documentTitle} - ${item?.title}`;
-
     if (!loadingUser && !loadingItem) {
+      document.title = `${documentTitle} - ${item?.title}`;
+
       startAnalyticsScript(user);
     }
   }, [loadingUser, user, item?.title, loadingItem]);

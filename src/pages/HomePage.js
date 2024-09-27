@@ -26,9 +26,9 @@ const HomePage = () => {
   }, [filteredValue, items]);
 
   useEffect(() => {
-    document.title = documentTitle;
-
     if (!loadingUser && !loading) {
+      document.title = documentTitle;
+
       startAnalyticsScript(user);
     }
   }, [loadingUser, loading, user]);

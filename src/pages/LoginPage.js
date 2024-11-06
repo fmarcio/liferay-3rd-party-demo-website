@@ -6,6 +6,7 @@ import ClayLoadingIndicator from "@clayui/loading-indicator";
 import { Link } from "react-router-dom";
 import { useFetchUsers } from "../hooks/useFetch";
 import { setUserIdOnLocalStorage } from "../utils/storage";
+import { getImagePath } from "../utils/image-path";
 
 const LoginPage = () => {
   const [password, setPassword] = useState("");
@@ -25,7 +26,10 @@ const LoginPage = () => {
     <div className="login">
       <ClayForm.Group className="sheet">
         <div className="text-center mb-4 position-relative">
-          <img src="./LiferayStateLogo-LoginPage.png" alt="logo" />
+          <img
+            src={`${getImagePath()}/LiferayStateLogo-LoginPage.png`}
+            alt="logo"
+          />
         </div>
 
         <label

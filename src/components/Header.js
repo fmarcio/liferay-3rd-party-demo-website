@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ClayInput } from "@clayui/form";
 import { useQuery } from "../hooks/useQuery";
+import { getImagePath } from "../utils/image-path";
 
 const Header = ({ value, onChange, showFilter = true, userName }) => {
   const userId = useQuery("userId");
@@ -9,7 +10,10 @@ const Header = ({ value, onChange, showFilter = true, userName }) => {
     <header className="header d-flex justify-content-between py-4 px-6">
       <Link to={`/home?userId=${userId}`}>
         <div className="position-relative">
-          <img src="./LiferayStateLogo-Home.png" alt="logo" />
+          <img
+            src={`${getImagePath()}/LiferayStateLogo-LoginPage.png`}
+            alt="logo"
+          />
         </div>
       </Link>
 
